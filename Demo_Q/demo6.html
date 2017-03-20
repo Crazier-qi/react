@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo6</title>
+	<script src="../build/react.js"></script>
+	<script src="../build/react-dom.js"></script>
+	<script src="../build/browser.min.js"></script>
+</head>
+<body>
+	<div id="example"></div>
+	<script type="text/babel">
+		var data = 123;//这里设置title的值是一个数值
+		var MyTitle = React.createClass({
+			propTypes:{
+				title:React.PropTypes.string.isRequired,
+			},//proptypes告诉react，title属性是必须的，而且它的值必须是字符串。
+			render:function(){
+				return <h1>{this.props.title}</h1>;
+			}
+		});
+		ReactDOM.render(
+			<MyTitle title={data}/>,
+			document.getElementById('example')
+			);
+//因此，title属性就通不过验证，控制台会显示一行错误信息
+			</script>
+</body>
+</html>
